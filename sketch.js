@@ -2,6 +2,7 @@ let balls = [];
 const nameItems = [];
 let capture1;
 let buttonClick = -1;
+let douremember;
 
 let nameInput;
 let button;
@@ -10,6 +11,8 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   capture1 = createCapture(VIDEO);
   capture1.hide();
+  
+  douremember = loadImage("douremember.gif");
   
   nameInput = select("#textInput");
   nameInput.position(width/2-204, windowHeight-160);
@@ -26,7 +29,7 @@ function setup() {
 
 function draw() {
   background(255)
-  image(capture1,0, 0, width, height)
+  image(capture1,width/2, height/2, width, height)
   for (let i=0; i<balls.length; i++){
     balls[i].drawText();
     balls[i].moveText();
@@ -38,12 +41,10 @@ function draw() {
    let name = nameInput.value(); 
    text(name, 0, 0);
     }
-  fill(255,50, 50);
-  textAlign(CENTER);
-  textSize(50);
-  strokeWeight(2);
-  textFont('times new roman');
-  text("do you remember ?", width/2, 100,);
+  
+  
+  imageMode(CENTER);
+  image(douremember, width/2, 80, 504, 210)
   
 }
 
