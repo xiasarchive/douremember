@@ -21,7 +21,7 @@ class Ball{
     this.y = this.y + this.dy;
 }
   fadeText(){
-    if (frameCount % 30 == 0) {
+    if (frameCount % 100 == 0) {
       this.opac = this.opac - 1;
     }
   }
