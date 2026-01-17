@@ -9,7 +9,14 @@ let nameInput;
 let button;
 
 async function preload(){
+  
+ let cacheBuster = new Date().getTime();
+
  data = await loadTable(url, "csv", "header");
+
+ 
+  let urlWithCacheBuster = url + "&v=" + cacheBuster;
+
 }
 
 function setup() {
@@ -42,7 +49,7 @@ function draw() {
 
 
     if (data){
-      if (currentTime < 500){
+      if (currentTime < 250){
       let numRows = data.getRowCount();
       let memoryCollumn = data.getColumn(0);
 
