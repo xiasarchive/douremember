@@ -8,13 +8,37 @@
 
   </head>
   <body>
-    <form id="form" onsubmit="return false;">
-    <textarea id="textInput" maxlength="3000" placeholder="plz submit a memory u r fond of!"></textarea>
-    <button id="textButton" type="submit" onclick="reset();" >submit :3</button>
+    <form id="form" onsubmit="return false;" autocomplete="off" name="memory-form" action="https://script.google.com/macros/s/AKfycbxWe4jGhAcuxQBLLfAjWSwjsyAIQSDGGgYV6YKaL6_LWw_On8Di5Scn4FJyberNWl1BxQ/exec" method="post">
+
+
+      <div class="form-group">
+        <input type="text" id="textInput" maxlength="3000" placeholder="plz submit a memory u r fond of!" name="Memory"/>
+      </div>
+
+    <button id="textButton" type="submit" >submit :3</button>
     </form>
+
+
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbxWe4jGhAcuxQBLLfAjWSwjsyAIQSDGGgYV6YKaL6_LWw_On8Di5Scn4FJyberNWl1BxQ/exec'
+
+      const form = document.forms['memory-form']
+
+      form.addEventListener('submit', e => {
+
+        e.preventDefault()
+
+        fetch(scriptURL, {method: 'POST', body: new FormData(form)})
+        .then(() => {window.location.reload(); })
+      })
+    </script>
+
     <main>
     </main>
+
     <script src="sketch.js"></script>
     <script src="ball.js"></script>
+
+
   </body>
 </html>
