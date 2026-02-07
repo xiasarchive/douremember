@@ -9,15 +9,15 @@ let nameInput;
 let button;
 
 async function preload(){
-  
+  let cacheBuster = new Date().getTime();
+  let urlWithCacheBuster = url + "&v=" + cacheBuster;
 
 
- let cacheBuster = new Date().getTime();
 
- data = await loadTable(url, "csv", "header");
+ data = await loadTable(urlWithCacheBuster, "csv", "header");
 
  
-  let urlWithCacheBuster = url + "&v=" + cacheBuster;
+
 
  
 
@@ -54,7 +54,7 @@ function draw() {
       var currentTime = millis();
 
     if (data){
-      if (currentTime < 5000){
+      if (currentTime < 1500){
       let numRows = data.getRowCount();
       let memoryCollumn = data.getColumn(0);
 
@@ -74,12 +74,8 @@ function draw() {
         balls[j].checkBoundary();
         balls[j].fadeText();
    }
-    }
 
     
-    
-
-  }
 
 
 
