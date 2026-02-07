@@ -63,7 +63,7 @@ function draw() {
       balls.push(new Ball(random(width), random(height), i));
       nameItems.push(memory);
     }
-  }else {
+  }else if (!data) {
     window.location.reload();
     }
 
