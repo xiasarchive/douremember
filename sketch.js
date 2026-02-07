@@ -37,7 +37,7 @@ function setup() {
   
   button = select("#textButton");
   button.position(width/2 - 205, nameInput.y+115);
-  button.size(410, 30)
+  button.size(410, 30);
 }
 
 
@@ -63,9 +63,7 @@ function draw() {
       balls.push(new Ball(random(width), random(height), i));
       nameItems.push(memory);
     }
-  }else {
-    window.location.reload();
-    }
+  }
 
 
 
