@@ -9,18 +9,13 @@ let nameInput;
 let button;
 
 async function preload(){
-  let cacheBuster = new Date().getTime();
+  
+ let cacheBuster = new Date().getTime();
+
+ data = await loadTable(url, "csv", "header");
+
+ 
   let urlWithCacheBuster = url + "&v=" + cacheBuster;
-
-
-
- data = await loadTable(urlWithCacheBuster, "csv", "header");
-
- 
-
-
- 
-
 
 }
 
@@ -37,7 +32,7 @@ function setup() {
   
   button = select("#textButton");
   button.position(width/2 - 205, nameInput.y+115);
-  button.size(410, 30);
+  button.size(410, 30)
 }
 
 
@@ -50,11 +45,11 @@ function draw() {
   background(255)
 
   image(capture1,width/2, height/2, width, height)
+  var currentTime = millis();
 
-      var currentTime = millis();
 
     if (data){
-      if (currentTime < 1500){
+      if (currentTime < 1000){
       let numRows = data.getRowCount();
       let memoryCollumn = data.getColumn(0);
 
@@ -63,8 +58,7 @@ function draw() {
       balls.push(new Ball(random(width), random(height), i));
       nameItems.push(memory);
     }
-  }
-
+  } 
 
 
 
@@ -73,9 +67,12 @@ function draw() {
         balls[j].moveText();
         balls[j].checkBoundary();
         balls[j].fadeText();
-   }
+    }
 
     
+    
+
+  }
 
 
 
@@ -88,7 +85,6 @@ function draw() {
   image(douremember, width/2, 80, 504, 210);
   
 }
-
 
 
 
