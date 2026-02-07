@@ -8,14 +8,14 @@ let url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQs3lXb8shjQ29ri8LQdk
 let nameInput;
 let button;
 
-function preload(){
+async function preload(){
   
- let cacheBuster = new Date().getTime();
 
- data = loadTable(url, "csv", "header");
+
+ data = await loadTable(url, "csv", "header");
 
  
-  let urlWithCacheBuster = url + "&v=" + cacheBuster;
+
 
 }
 
