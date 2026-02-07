@@ -12,7 +12,12 @@ async function preload(){
   
 
 
+ let cacheBuster = new Date().getTime();
+
  data = await loadTable(url, "csv", "header");
+
+ 
+  let urlWithCacheBuster = url + "&v=" + cacheBuster;
 
  
 
