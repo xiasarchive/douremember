@@ -49,7 +49,7 @@ function draw() {
 
 
     if (data){
-      if (currentTime < 250){
+      if (currentTime < 1000){
       let numRows = data.getRowCount();
       let memoryCollumn = data.getColumn(0);
 
