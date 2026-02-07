@@ -51,11 +51,10 @@ function draw() {
 
   image(capture1,width/2, height/2, width, height)
 
-
+      var currentTime = millis();
 
     if (data){
-      var currentTime = millis();
-      if (currentTime < 5000){
+      if (currentTime < 2000){
       let numRows = data.getRowCount();
       let memoryCollumn = data.getColumn(0);
 
@@ -77,7 +76,7 @@ function draw() {
         balls[j].checkBoundary();
         balls[j].fadeText();
         
-        if (balls.length == 0) {
+        if (balls.length == 0) && (currentTime > 5000){
           window.location.reload();
           }
     }
