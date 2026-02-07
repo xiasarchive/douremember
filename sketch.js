@@ -55,7 +55,7 @@ function draw() {
 
     if (data){
       var currentTime = millis();
-      if (currentTime < 10000){
+      if (currentTime < 5000){
       let numRows = data.getRowCount();
       let memoryCollumn = data.getColumn(0);
 
@@ -76,6 +76,10 @@ function draw() {
         balls[j].moveText();
         balls[j].checkBoundary();
         balls[j].fadeText();
+        
+        if (balls.length == 0) {
+          window.location.reload();
+          }
     }
 
     
