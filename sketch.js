@@ -50,11 +50,12 @@ function draw() {
   background(255)
 
   image(capture1,width/2, height/2, width, height)
-  var currentTime = millis();
+
 
 
     if (data){
-      if (currentTime < 15000){
+      var currentTime = millis();
+      if (currentTime < 10000){
       let numRows = data.getRowCount();
       let memoryCollumn = data.getColumn(0);
 
